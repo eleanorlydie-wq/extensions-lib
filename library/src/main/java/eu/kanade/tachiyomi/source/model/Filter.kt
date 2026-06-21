@@ -25,4 +25,11 @@ sealed class Filter<T>(val name: String, var state: T) {
         data class Selection(val index: Int, val ascending: Boolean)
     }
 
+    abstract class AutoComplete(
+        name: String,
+        val hint: String = "",
+        state: String = "",
+        val suggestions: List<String> = emptyList(),
+    ) : Filter<String>(name, state)
+
 }
